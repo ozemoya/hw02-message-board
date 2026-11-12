@@ -1,0 +1,13 @@
+00-emulator-dashboard.png|Figure 1 Firebase emulator setup|Action: open the local Firebase dashboard. Expected: Authentication and Firestore running for demo-hw02-board. Observed: both local services were on. Pass.
+01-launch.png|Figure 2 Release launch|Action: install and launch the exact release APK. Expected: Android starts the app and hands off to Flutter. Observed: installation succeeded, and the platform launch screen appeared. Pass for launch.
+02-sign-in.png|Figure 3 Signed out|Action: open the installed APK without a session. Expected: account controls and no message board. Observed: the sign-in and registration controls appeared. Pass.
+03-invalid.png|Figure 4 Invalid input|Action: submit the empty sign-in form. Expected: helpful validation. Observed: email and password errors appeared on the release form. Pass.
+05-empty-board.png|Figure 5 Registration and empty board|Action: create the fictional learner account in the release app. Expected: open the signed-in board. Observed: the composer and No messages yet appeared. Pass.
+06-post.png|Figure 6 Create and duplicate submit|Action: enter Hello and tap Post twice. Expected: one saved post. Observed: one board row and one Messages document. Pass.
+07-profile.png|Figure 7 Registration record|Action: inspect Users after release registration. Expected: all five fields. Observed: UID, first name, last name, member role, and server registration datetime. Pass.
+08-live.png|Figure 8 Live update from a second client|Action: write a message from a separate emulator client while the Android board remains open. Expected: automatic update. Observed: the second client's message appeared without refreshing. Pass.
+09-edit.png|Figure 9 Author edit|Action: change Hello to Hello edited and save from the author menu. Expected: update on the board. Observed: the edited text replaced the original. Pass.
+10-restart.png|Figure 10 Session and message persistence|Action: stop and relaunch the Android app while the Firebase emulator stays running. Expected: restore the signed-in session and load the saved edit. Observed: the board reopened with Hello edited and without another login. Pass.
+11-delete.png|Figure 11 Delete|Action: confirm deletion through the author's menu. Expected: remove the edited message. Observed: the board returned to its empty state. Pass.
+12-sign-out.png|Figure 12 Sign out|Action: sign out from the board. Expected: close the private view and show the sign-in screen. Observed: the form appeared without board controls. Pass.
+13-login.png|Figure 13 Existing account login|Action: enter the same fictional account after signing out. Expected: reopen its board without another registration. Observed: the signed-in board and composer reopened. Pass.
