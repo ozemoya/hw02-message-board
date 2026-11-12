@@ -126,12 +126,14 @@ class _ProfileGateState extends State<ProfileGate> {
               ),
             );
           }
-          if (!snapshot.hasData)
+          if (!snapshot.hasData) {
             return const Scaffold(
               body: Center(child: CircularProgressIndicator()),
             );
-          if (!snapshot.data!.exists)
+          }
+          if (!snapshot.data!.exists) {
             return AccountForm(service: widget.service, user: widget.user);
+          }
           return MessageBoard(user: widget.user, service: widget.service);
         },
       );
@@ -180,10 +182,11 @@ class _AccountFormState extends State<AccountForm> {
         await widget.service.signIn(email.text.trim(), password.text);
       }
     } catch (_) {
-      if (mounted)
+      if (mounted) {
         setState(
           () => error = 'Could not finish. Check your details and try again.',
         );
+      }
     } finally {
       if (mounted) setState(() => busy = false);
     }
@@ -334,8 +337,9 @@ class _MessageBoardState extends State<MessageBoard> {
   }
 
   void notice(String text) {
-    if (mounted)
+    if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
+    }
   }
 
   Future<void> modify(
@@ -435,15 +439,18 @@ class _MessageBoardState extends State<MessageBoard> {
             child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
               stream: messages,
               builder: (context, snapshot) {
-                if (snapshot.hasError)
+                if (snapshot.hasError) {
                   return const Center(
                     child: Text('The board could not be loaded.'),
                   );
-                if (!snapshot.hasData)
+                }
+                if (!snapshot.hasData) {
                   return const Center(child: CircularProgressIndicator());
+                }
                 final docs = snapshot.data!.docs;
-                if (docs.isEmpty)
+                if (docs.isEmpty) {
                   return const Center(child: Text('No messages yet.'));
+                }
                 return ListView.builder(
                   itemCount: docs.length,
                   itemBuilder: (context, index) {

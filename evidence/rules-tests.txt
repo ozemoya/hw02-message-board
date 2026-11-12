@@ -1,0 +1,23 @@
+
+> test
+> node --test test-rules.mjs
+
+✔ signed-out board read is denied (2232.5923ms)
+[2026-11-12T20:05:33.508Z]  @firebase/firestore: Firestore (13.3.0): GrpcConnection RPC 'Write' stream 0x2591fb27 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+evaluation error at L25:24 for 'update' @ L25, false for 'update' @ L25
+[2026-11-12T20:05:33.541Z]  @firebase/firestore: Firestore (13.3.0): GrpcConnection RPC 'Write' stream 0x2591fb28 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+evaluation error at L29:24 for 'delete' @ L29, false for 'delete' @ L29
+✔ another member cannot update or delete an authored message (671.3476ms)
+[2026-11-12T20:05:33.617Z]  @firebase/firestore: Firestore (13.3.0): GrpcConnection RPC 'Write' stream 0x2591fb29 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+evaluation error at L21:24 for 'create' @ L21, evaluation error at L25:24 for 'update' @ L25, false for 'create' @ L21
+✔ forged author is denied and the real author can complete CRUD (193.4011ms)
+✔ profile writes five fields and stays private (94.1911ms)
+✔ two calls using one document ID produce one post and a second client sees it live (226.5313ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3805.3132
